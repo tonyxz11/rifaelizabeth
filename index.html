@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rifa Elizabeth</title>
+<style>
+:root{
+ --bg:#f4f6fa;--surface:#fff;--ink:#101828;--muted:#667085;
+ --blue:#3157d5;--blue2:#193baf;--line:#e4e7ec;--gold:#f5b942;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Inter,Arial,sans-serif;color:var(--ink)}
+.app{width:min(430px,100%);margin:auto;min-height:100vh;background:var(--surface);box-shadow:0 0 45px #10182812}
+.top{padding:18px 20px 15px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px}
+.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,var(--blue),var(--blue2));display:grid;place-items:center;color:#fff;font-size:20px;font-weight:900}
+.brand strong{font-size:18px;display:block;line-height:1.1}.brand small{font-size:11px;color:var(--muted)}
+.live{font-size:10px;font-weight:800;color:#087443;background:#ecfdf3;border:1px solid #abefc6;border-radius:999px;padding:6px 9px}
+.main{padding:20px}
+.title{text-align:center}.title h1{font-size:30px;letter-spacing:-.04em;margin:0}.title p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.stage{margin-top:18px;background:linear-gradient(145deg,#0e1732,#17295d);border-radius:24px;padding:20px 15px 17px;color:#fff;text-align:center;overflow:hidden;position:relative}
+.stage:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:#5275ff18;top:-110px;left:50%;transform:translateX(-50%)}
+.stage-label{position:relative;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#bfcaff}
+.globe-area{height:210px;position:relative;display:flex;align-items:center;justify-content:center}
+.globe{width:155px;height:155px;border-radius:50%;position:relative;z-index:2;
+background:radial-gradient(circle at 32% 24%,#fff8d8 0 5%,#ffd66c 12%,#e4a92e 38%,#a86d10 73%,#67400b 100%);
+border:5px solid #ffe39a;box-shadow:inset -18px -18px 28px #382305aa,0 15px 35px #0008}
+.globe:after{content:"";position:absolute;width:38px;height:17px;border-radius:50%;background:#fff9;top:23px;left:28px;filter:blur(2px);transform:rotate(-25deg)}
+.bubble{position:absolute;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#18223c;font-size:7px;font-weight:900;box-shadow:0 3px 8px #0008}
+.bubble:nth-child(1){left:25px;top:74px}.bubble:nth-child(2){left:61px;top:40px}.bubble:nth-child(3){left:101px;top:72px}.bubble:nth-child(4){left:55px;top:105px}.bubble:nth-child(5){left:91px;top:43px}
+.globe.spinning{animation:spin .18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.base{position:absolute;bottom:7px;width:90px;height:13px;border-radius:50%;background:#060b1c;box-shadow:0 5px 10px #0008}
+.count{position:relative;font-size:62px;font-weight:950;line-height:1;color:#fff}
+.status{position:relative;margin-top:4px;font-size:13px;color:#dbe3ff;font-weight:700}
+.slots{position:relative;display:flex;justify-content:center;gap:9px;margin:12px 0 3px;min-height:66px}
+.slot{width:62px;height:62px;border-radius:50%;border:1px dashed #7c8bb8;color:#9ba8cd;display:grid;place-items:center;font-size:11px;font-weight:900}
+.slot.active{border:0;background:linear-gradient(145deg,#ffe49a,#e7ad37);color:#1b1509;box-shadow:0 8px 20px #0005;animation:drop .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes drop{0%{transform:translateY(-170px) scale(.65);opacity:0}70%{transform:translateY(8px) scale(1.08)}100%{transform:none;opacity:1}}
+.falling{position:fixed;z-index:99;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#ffe49a,#e7ad37);color:#1b1509;font-size:19px;font-weight:950;border:2px solid #fff0bd;box-shadow:0 15px 35px #0008;transition:all 1s cubic-bezier(.18,.86,.2,1)}
+button{width:100%;border:0;border-radius:14px;background:var(--blue);color:#fff;font-size:16px;font-weight:900;padding:17px;margin-top:15px;cursor:pointer;box-shadow:0 9px 18px #3157d52e}
+button:hover{background:var(--blue2)}button:disabled{opacity:.55}
+.final{font-size:13px;color:#475467;margin-top:8px;font-weight:700}
+.info{display:flex;gap:9px;margin-top:12px}
+.info div{flex:1;border:1px solid var(--line);border-radius:12px;padding:11px;text-align:center;background:#fafbfc}
+.info b{display:block;font-size:18px}.info span{font-size:10px;color:var(--muted)}
+footer{text-align:center;color:#98a2b3;font-size:10px;padding:16px 20px 20px}
+@media(max-height:700px){.top{padding:10px 16px}.main{padding:12px 16px}.title h1{font-size:26px}.stage{margin-top:10px;padding:12px}.globe-area{height:170px}.globe{width:125px;height:125px}.base{bottom:3px}.count{font-size:50px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div class="brand"><div class="logo">R</div><div><strong>Rifa Elizabeth</strong><small>Sorteio oficial</small></div></div>
+ <div class="live">● AO VIVO</div>
+</header>
+
+<main class="main">
+ <div class="title">
+  <h1>Sorteio de 3 números</h1>
+  <p>De 01 a 100 • Boa sorte a todos!</p>
+ </div>
+
+ <section class="stage" id="stage">
+  <div class="stage-label">Globo da Sorte</div>
+  <div class="globe-area">
+   <div class="globe" id="globe">
+    <span class="bubble">07</span><span class="bubble">24</span><span class="bubble">51</span><span class="bubble">68</span><span class="bubble">93</span>
+   </div>
+   <div class="base"></div>
+  </div>
+  <div class="count" id="count">—</div>
+  <div class="status" id="status">Pronto para começar</div>
+  <div class="slots">
+   <div class="slot" id="slot0">1º</div><div class="slot" id="slot1">2º</div><div class="slot" id="slot2">3º</div>
+  </div>
+ </section>
+
+ <button id="draw">🎰 COMEÇAR O SORTEIO</button>
+
+ <div class="info">
+  <div><b>100</b><span>NÚMEROS</span></div>
+  <div><b>3</b><span>SORTEADOS</span></div>
+  <div><b>✓</b><span>AUTOMÁTICO</span></div>
+ </div>
+</main>
+
+<footer>Resultado gerado automaticamente pelo navegador.</footer>
+</div>
+
+<script>
+const btn=document.getElementById('draw'),globe=document.getElementById('globe');
+const count=document.getElementById('count'),status=document.getElementById('status');
+const history=[];
+function secureInt(max){const a=new Uint32Array(1),limit=Math.floor(0x100000000/max)*max;do{crypto.getRandomValues(a)}while(a[0]>=limit);return a[0]%max}
+function drawThree(){const s=new Set();while(s.size<3)s.add(secureInt(100)+1);return [...s]}
+function resetSlots(){for(let i=0;i<3;i++){let x=document.getElementById('slot'+i);x.textContent=(i+1)+'º';x.classList.remove('active')}}
+function dropNumber(i,n){
+ const slot=document.getElementById('slot'+i),a=globe.getBoundingClientRect(),b=slot.getBoundingClientRect();
+ const ball=document.createElement('div');ball.className='falling';ball.textContent=String(n).padStart(2,'0');
+ ball.style.left=(a.left+a.width/2-29)+'px';ball.style.top=(a.top+a.height/2-29)+'px';document.body.appendChild(ball);
+ requestAnimationFrame(()=>{ball.style.left=(b.left+b.width/2-29)+'px';ball.style.top=(b.top+b.height/2-29)+'px';ball.style.transform='rotate(720deg)'});
+ setTimeout(()=>{slot.textContent=String(n).padStart(2,'0');slot.classList.add('active');ball.remove()},1000)
+}
+btn.onclick=()=>{
+ btn.disabled=true;btn.textContent='AGUARDE...';resetSlots();count.textContent='3';status.textContent='O sorteio começa em...';
+ setTimeout(()=>count.textContent='2',1000);setTimeout(()=>count.textContent='1',2000);
+ setTimeout(()=>{count.textContent='🎰';status.textContent='O globo está girando!';globe.classList.add('spinning')},3000);
+ setTimeout(()=>{
+  globe.classList.remove('spinning');const r=drawThree();
+  status.textContent='O 1º número está saindo...';dropNumber(0,r[0]);
+  setTimeout(()=>{status.textContent='O 2º número está saindo...';dropNumber(1,r[1])},1300);
+  setTimeout(()=>{status.textContent='O 3º número está saindo...';dropNumber(2,r[2])},2600);
+  setTimeout(()=>{
+   history.unshift(r);count.textContent='✓';status.textContent='Sorteio concluído!';
+   document.querySelector('.final')?.remove();
+   const f=document.createElement('div');f.className='final';f.textContent='Números sorteados: '+r.map(n=>String(n).padStart(2,'0')).join(' • ');
+   document.getElementById('stage').appendChild(f);
+   btn.disabled=false;btn.textContent='🔄 FAZER NOVO SORTEIO';
+  },3900);
+ },3500);
+};
+</script>
+</body>
+</html>
